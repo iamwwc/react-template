@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, HashRouter, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
-import { Home } from '../components/routes'
-const Router = HashRouter
+import { Home,Staff } from '../routes'
+import Nav from '../features/nav'
+const Router = BrowserRouter
 
 export default connect(state => {
   return {
@@ -14,9 +15,13 @@ export default connect(state => {
       return (
         <React.Fragment>
           <Router>
-            <Switch>
-              <Route exact path="/" component={Home} ></Route>
-            </Switch>
+            <Nav></Nav>
+            <div className="display-content">
+              <Switch>
+                <Route exact path="/" component={Home} ></Route>
+                <Route path="/user/staff" component={Staff}></Route>
+              </Switch>
+            </div>
           </Router>
         </React.Fragment>
       )
