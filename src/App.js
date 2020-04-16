@@ -3,8 +3,8 @@ import './App.css';
 import RootRouter from './common/index'
 import reducers from './reducers'
 import { Provider } from 'react-redux';
-import { createStore } from "redux";
-const store = createStore(reducers)
+import configureStore from "./common/configureStore";
+const store = configureStore(reducers)
 
 export class App extends Component {
   render() {

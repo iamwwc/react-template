@@ -5,7 +5,7 @@ const initialState = { count: 0}
 function plus(state = initialState, action) {
   switch(action.type){
     case 'PLUS_COUNT':
-      return {... state, count: state.count ++}
+      return {... state, count: ++ state.count }
     default:
       return state
   }

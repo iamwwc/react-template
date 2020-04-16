@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, HashRouter, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
-import Home from '../components/routes'
-
+import { Home } from '../components/routes'
 const Router = HashRouter
 
 export default connect(state => {

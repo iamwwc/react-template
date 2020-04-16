@@ -1,6 +1,1 @@
-import Home from './Home'
-
-const e = {
-  Home: Home
-}
-export default e 
+export { default as Home } from './Home'

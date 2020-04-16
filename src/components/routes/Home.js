@@ -7,8 +7,8 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <div>count : {this.count}</div>
-          <button onClick={() => this.countClickHandler()}>
+        <div>count : {this.props.count}</div>
+          <button onClick={() => this.props.countClickHandler()}>
         </button>
       </div>
     )
