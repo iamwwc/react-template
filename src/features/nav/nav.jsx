@@ -8,10 +8,13 @@ export default class extends React.Component {
       <div id="nav-root">
         <div id="nav-links">
           <Link to="/">
-            <Button className="link" type="primary">Home</Button>
+            <Button className="link" type="primary">主页</Button>
           </Link>
           <Link to="/user/staff">
-            <Button className="link" type="primary">Staff</Button>
+            <Button className="link" type="primary">人员管理</Button>
+          </Link>
+          <Link to="/rooms">
+            <Button className="link" type="primary">房间配置</Button>
           </Link>
         </div>
       </div>
