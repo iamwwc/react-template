@@ -1,9 +1,5 @@
-import React from 'react'
+import Staff from './staff'
 
-export default class extends React.Component {
-  render() {
-    return (
-      <div>Staff panel</div>
-    )
-  }
-}
+import { connect } from "react-redux";
+
+export default connect()(Staff)

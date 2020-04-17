@@ -16,6 +16,9 @@ export default class extends React.Component {
           <Link to="/rooms">
             <Button className="link" type="primary">房间配置</Button>
           </Link>
+          <Link to="/test">
+            <Button className="link" type="primary">测试面板</Button>
+          </Link>
         </div>
       </div>
     )
