@@ -6,4 +6,12 @@ export default class extends React.Component {
       <div>Staff panel</div>
     )
   }
+
+  componentWillMount() {
+
+  }
+}
+
+function fetchStaff() {
+  
 }

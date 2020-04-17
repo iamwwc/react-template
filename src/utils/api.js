@@ -5,7 +5,7 @@ class client {
     this.host = host
   }
 
-  async function apiGo(method,url, data){
+  async  apiGo(method,url, data){
     let result = await axios.request({
       method,
       data,
@@ -18,12 +18,20 @@ class client {
   }
 
   apiUrl = path => `http://${host}/${path}`
-  async function fetchUser(path) {
+  async fetchUser(path) {
     const url = apiUrl(path)
     return await apiGo("GET",url)
   }
 
-  async function update(path,data) {
+  async update(path,data) {
     return await apiGo("POST",url,data)
   }
+}
+
+let c= null
+
+export default function (host) {
+  if (c !== null) 
+    return c
+  c = new client(host)
 }
