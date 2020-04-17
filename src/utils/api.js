@@ -18,8 +18,8 @@ class client {
   }
 
   apiUrl = path => `http://${host}/${path}`
-  async fetchUser(path) {
-    const url = apiUrl(path)
+  async fetchUser(fullpath) {
+    const url = apiUrl(fullpath)
     return await apiGo("GET",url)
   }
 
