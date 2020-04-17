@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, HashRouter, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
-import { Home, Staff, Rooms,Test } from '../routes'
+import { Home, UserHOC, Rooms, Test, User } from '../routes'
 import Nav from '../features/nav'
 const Router = BrowserRouter
 
@@ -19,7 +19,7 @@ export default connect(state => {
             <div className="display-content">
               <Switch>
                 <Route exact path="/" component={Home} ></Route>
-                <Route path="/user/staff" component={Staff}></Route>
+                <Route path="/user" component={User}></Route>
                 <Route path="/rooms" component={Rooms}></Route>
                 <Route path="/test" component={Test}></Route>
               </Switch>

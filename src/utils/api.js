@@ -3,6 +3,11 @@ import axios from 'axios'
 class client {
   constructor(host) {
     this.host = host
+    if (process.env.NODE_ENV === 'production') {
+      this.port = 443
+    }else {
+      this.port = 3030
+    }
   }
 
   async  apiGo(method,url, data){
@@ -12,19 +17,19 @@ class client {
       url
     })
     return {
-      code: result.code,
+      code: result.status,
       data: result.data
     }
   }
 
-  apiUrl = path => `http://${host}/${path}`
+  apiUrl = path => `http://${this.host}:${this.port}${path}`
   async fetchUser(fullpath) {
-    const url = apiUrl(fullpath)
-    return await apiGo("GET",url)
+    const url = this.apiUrl(fullpath)
+    return await this.apiGo("GET",url)
   }
 
   async update(path,data) {
-    return await apiGo("POST",url,data)
+    return await this.apiGo("POST",this.url,data)
   }
 }
 
@@ -34,4 +39,5 @@ export default function (host) {
   if (c !== null) 
     return c
   c = new client(host)
+  return c
 }

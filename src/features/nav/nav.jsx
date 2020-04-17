@@ -6,11 +6,11 @@ export default class extends React.Component {
   render() {
     return (
       <div id="nav-root">
-        <div id="nav-links">
+        <div className="btn-links">
           <Link to="/">
             <Button className="link" type="primary">主页</Button>
           </Link>
-          <Link to="/user/staff">
+          <Link to="/user">
             <Button className="link" type="primary">人员管理</Button>
           </Link>
           <Link to="/rooms">
