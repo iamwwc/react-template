@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
 import { Home, UserHOC, Rooms, Test, User } from '../routes'
 import Nav from '../features/nav'
