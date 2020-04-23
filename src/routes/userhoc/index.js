@@ -7,18 +7,16 @@ const client = api('apibs.chaochaogege.net')
 
 // used by staff and consumer
 
-export default function(role) {
-    return function() {
-      useEffect(() => {
-        (async function(){
-          // let { code, data } = await client.fetchUser('/' + role)
-          // this.props.dispatch({ type: `SET_${role.toUpperCase()}`, data })
-        })()
-      },[])
+export default function(role){
+  class a extends React.Component{
+    render() {
       return (
         <EditableTable></EditableTable>
       )
     }
+  }
+  connect()(a)
+  return a
 }
 
 const originData = [];
@@ -68,16 +66,14 @@ const EditableCell = ({
 };
 
 const EditableTable = () => {
-  debugger
-  const [form] = Form.useForm()
+  const form = React.createRef()
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
 
   const isEditing = record => record.key === editingKey;
 
   const edit = record => {
-    debugger
-    form.setFieldsValue({ ...record });
+    form.current.setFieldsValue({ ...record });
     setEditingKey(record.key);
   };
 
@@ -86,7 +82,7 @@ const EditableTable = () => {
   };
   const save = async key => {
     try {
-      const row = await form.validateFields();
+      const row = await form.current.validateFields();
       const newData = [...data];
       const index = newData.findIndex(item => key === item.key);
 
@@ -132,7 +128,6 @@ const EditableTable = () => {
         return editable ? (
           <span>
             <a
-              href="javascript:;"
               onClick={() => save(record.key)}
               style={{
                 marginRight: 8,
@@ -169,7 +164,7 @@ const EditableTable = () => {
     };
   });
   return (
-    <Form form={form} component={false}>
+    <Form ref={form} component={false}>
       <Table
         components={{
           body: {
